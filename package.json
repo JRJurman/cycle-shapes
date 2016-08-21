@@ -1,0 +1,40 @@
+{
+  "name": "cycle-shapes",
+  "version": "0.0.1",
+  "description": "A cycle.js project to draw shapes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild:js": "mkdir dist\\js",
+    "build:js": "browserify src/js/main.jsx -t [ babelify ] -o dist/js/main.js",
+    "build:html": "cp src\\index.html dist\\index.html",
+    "prebuild": "rm -r dist & echo \"cleaning\" && mkdir dist",
+    "build": "npm run build:html && npm run build:js",
+    "prestart": "npm run build",
+    "start": "node webserver.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JRJurman/cycle-shapes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JRJurman/cycle-shapes/issues"
+  },
+  "homepage": "https://github.com/JRJurman/cycle-shapes#readme",
+  "dependencies": {
+    "@cycle/dom": "^12.1.0",
+    "@cycle/xstream-run": "^3.0.4",
+    "babel": "^6.5.2",
+    "babel-plugin-syntax-jsx": "^6.13.0",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.0",
+    "express": "^4.14.0",
+    "snabbdom-jsx": "^0.3.0",
+    "xstream": "^5.3.6"
+  }
+}
